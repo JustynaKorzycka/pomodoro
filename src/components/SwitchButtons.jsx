@@ -24,7 +24,7 @@ export default SwitchButtons;
 
 const StyledSwitchButtons = styled.div`
  margin: 43px 0;
- background-color: ${({ theme }) => theme.colors.text};
+ background-color: ${({ theme }) => theme.colors.primary};
  border-radius: 31.5px;
- padding: 8px 11px;
+ padding: 6px 8px;
 `;

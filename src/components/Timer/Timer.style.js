@@ -39,7 +39,7 @@ export const TimerWrapper = styled.div`
 
  .circle {
   fill: none;
-  stroke: #17e68f;
+  stroke: ${({ theme }) => theme.themeColors.mainColor};
   stroke-width: 1;
   animation: ${timerProgress} 1s linear forwards;
  }
