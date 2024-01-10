@@ -16,7 +16,7 @@ export const TimerWrapper = ({ children }) => {
   if (!isCountDown || counter <= 0) return setIsCountDown(false);
   const timer = setInterval(() => {
    setCounter((prev) => prev - 1);
-  }, 200);
+  }, 1000);
   return () => clearInterval(timer);
  }, [isCountDown, counter]);
 
