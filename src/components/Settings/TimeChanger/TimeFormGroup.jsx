@@ -12,6 +12,7 @@ const TimeFormGroup = ({ name, label, onChange, value }) => {
     step="1"
     onChange={onChange}
     value={value}
+    required
    />
   </StyledTimeFormGroup>
  );
@@ -30,7 +31,6 @@ const StyledTimeFormGroup = styled.div`
   padding: 12px 16px;
   border: none;
   font-weight: bold;
-  flex-grow: 1;
  }
 
  label {
@@ -39,5 +39,16 @@ const StyledTimeFormGroup = styled.div`
   text-align: left;
   font-size: 1.2rem;
   font-weight: bold;
+ }
+
+ @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: flex-start;
+
+  input {
+   width: 100%;
+  }
  }
 `;

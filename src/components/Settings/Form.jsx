@@ -1,13 +1,10 @@
 import React, { useState } from "react";
-import { StyledForm, TimeChangerWrapper, ButtonsWrapper } from "./Form.style";
-import TimeFormGroup from "./TimeFormGroup";
-import TIMER_DATA from "../../data/timerData";
+import { StyledForm } from "./Form.style";
 import { UseTimerContext } from "../../context/timerContext";
 import Button from "../Button";
-import Divider from "../Divider";
-import FontButton from "./FontButton";
-import { FONT_FAMILY_TYPE } from "../../styles/theme.config";
-import ColorButtons from "./ColorButtons";
+import ColorButtons from "./ColorButtons/ColorButtons";
+import FontButtons from "./FontButtons/FontButtons";
+import TimeChanger from "./TimeChanger/TimeChanger";
 
 const Form = ({
  fontFamilyType,
@@ -46,48 +43,26 @@ const Form = ({
 
  const submitHandler = (e) => {
   e.preventDefault();
-  if (timeFormData.pomodoro) setPomodoro(parseInt(timeFormData.pomodoro) * 60);
-  else if (timeFormData.shortBreak)
+  if (timeFormData.pomodoro !== pomodoro)
+   setPomodoro(parseInt(timeFormData.pomodoro) * 60);
+  if (timeFormData.shortBreak !== shortBreak)
    setShortBreak(parseInt(timeFormData.shortBreak) * 60);
-  else setLongBreak(parseInt(timeFormData.longBreak) * 60);
+  if (timeFormData.longBreak !== longBreak)
+   setLongBreak(parseInt(timeFormData.longBreak) * 60);
   if (fontFormData !== fontFamilyType) setFontFamilyType(fontFormData);
   if (colorFormData !== selectedTheme) setSelectedTheme(colorFormData);
   onCloseModal();
  };
  return (
   <StyledForm onSubmit={submitHandler}>
-   <h3>Time (minutes)</h3>
-   <TimeChangerWrapper>
-    {TIMER_DATA.map((timer, index) => (
-     <TimeFormGroup
-      key={index}
-      name={timer.type}
-      label={timer.name}
-      value={timeFormData[`${timer.type}`]}
-      onChange={inputTimeChangeHandler}
-     />
-    ))}
-   </TimeChangerWrapper>
-   <Divider />
-   <h3>Font</h3>
-   <ButtonsWrapper>
-    <FontButton
-     type={FONT_FAMILY_TYPE.Kumbh}
-     isActive={fontFormData === FONT_FAMILY_TYPE.Kumbh && true}
-     onSelectFont={fontButtonClickHandler}
-    />
-    <FontButton
-     type={FONT_FAMILY_TYPE.Roboto}
-     isActive={fontFormData === FONT_FAMILY_TYPE.Roboto && true}
-     onSelectFont={fontButtonClickHandler}
-    />
-    <FontButton
-     type={FONT_FAMILY_TYPE.Space}
-     isActive={fontFormData === FONT_FAMILY_TYPE.Space && true}
-     onSelectFont={fontButtonClickHandler}
-    />
-   </ButtonsWrapper>
-   <Divider />
+   <TimeChanger
+    currentTimes={timeFormData}
+    onTimeChange={inputTimeChangeHandler}
+   />
+   <FontButtons
+    selectedFont={fontFormData}
+    onSelectFont={fontButtonClickHandler}
+   />
    <ColorButtons
     currentColor={colorFormData}
     onSelectColor={setColorFormData}
