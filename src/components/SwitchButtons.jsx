@@ -27,4 +27,5 @@ const StyledSwitchButtons = styled.div`
  background-color: ${({ theme }) => theme.colors.primary};
  border-radius: 31.5px;
  padding: 6px 8px;
+ z-index: 1;
 `;
