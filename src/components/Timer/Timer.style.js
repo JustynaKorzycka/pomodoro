@@ -15,6 +15,11 @@ export const StyledTimer = styled.div`
  border-radius: 50%;
  box-shadow: -50px -50px 100px #272c5a, 50px 50px 100px #121530;
  position: relative;
+
+ @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+  height: 410px;
+  width: 410px;
+ }
 `;
 
 export const TimerWrapper = styled.div`
@@ -45,15 +50,6 @@ export const TimerWrapper = styled.div`
  }
 `;
 
-export const ProgressBar = styled.svg`
- top: 0;
- left: 0;
- width: 100%;
- height: 100%;
- background-color: ${({ theme }) => theme.colors.first};
- border-radius: 50%;
-`;
-
 export const InsideTimer = styled.div`
  position: absolute;
  height: calc(100% - 40px);
@@ -72,6 +68,16 @@ export const InsideTimer = styled.div`
   color: ${({ theme }) => theme.colors.textBright};
   font-weight: bold;
  }
+
+ @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+  height: calc(100% - 60px);
+  width: calc(100% - 60px);
+  top: 30px;
+  left: 30px;
+  p {
+   font-size: 10rem;
+  }
+ }
 `;
 
 export const ToggleButton = styled.button`
@@ -82,4 +88,8 @@ export const ToggleButton = styled.button`
  letter-spacing: 1.3rem;
  font-weight: bold;
  cursor: pointer;
+ font-size: 1.4rem;
+ @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+  font-size: 1.6rem;
+ }
 `;

@@ -40,4 +40,8 @@ const StyledButton = styled.button`
    $formBtn ? "#fff" : theme.colors.textDark};
   opacity: 1;
  }
+
+ @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+  font-size: ${({ $formBtn }) => ($formBtn ? "1.6rem" : "1.4rem")};
+ }
 `;

@@ -79,7 +79,6 @@ const SettingsPanel = styled.div`
  right: 24px;
  border-radius: 15px;
  z-index: 2;
- max-width: 540px;
 
  transform: translateY(-50%);
  h2 {
@@ -90,6 +89,10 @@ const SettingsPanel = styled.div`
  @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 540px;
+  h2 {
+   font-size: 2.8rem;
+  }
  }
 `;
 

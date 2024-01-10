@@ -70,6 +70,11 @@ h1{
     font-size: 2.4rem;
     font-weight: 600;
     color: ${({ theme }) => theme.colors.textBright};
+
+    @media screen and (min-width: ${({ theme }) => theme.width.sm}px) {
+        font-size: 3.2rem;
+    }
+
 }
 .pomodoroBackground{
     background-color:  ${({ theme }) => theme.colors.first};
