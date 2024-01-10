@@ -8,6 +8,7 @@ This is a solution to the [Pomodoro app challenge on Frontend Mentor](https://ww
 - [Screenshot](#screenshot)
 - [Links](#links)
 - [Built with](#built-with)
+- [Continued development](#continued-development)
 
 ## The challenge
 
@@ -37,3 +38,7 @@ Users should be able to:
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
 - [Styled Components](https://styled-components.com/) - For styles
+
+## Continued development
+
+- improving application performance
