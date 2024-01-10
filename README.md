@@ -26,7 +26,7 @@ Users should be able to:
 
 ## Links
 
-- Live Site URL: [Add live site URL here](https://pomodoro-cyan-chi.vercel.app/)
+- Live Site URL: [https://pomodoro-cyan-chi.vercel.app/](https://pomodoro-cyan-chi.vercel.app/)
 
 ## Built with
 
