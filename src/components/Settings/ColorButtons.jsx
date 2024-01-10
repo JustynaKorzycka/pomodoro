@@ -6,7 +6,7 @@ const ColorButtons = ({ currentColor, onSelectColor }) => {
  return (
   <>
    <h3>Color</h3>
-   <ButtonsWrapper>
+   <ColorsWrapper>
     <ColorButton
      type="button"
      $colorType="red"
@@ -31,12 +31,16 @@ const ColorButtons = ({ currentColor, onSelectColor }) => {
     >
      &#10004;
     </ColorButton>
-   </ButtonsWrapper>
+   </ColorsWrapper>
   </>
  );
 };
 
 export default ColorButtons;
+
+const ColorsWrapper = styled(ButtonsWrapper)`
+ margin-bottom: 20px;
+`;
 
 const ColorButton = styled.button`
  width: 40px;
