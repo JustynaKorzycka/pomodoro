@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { UseTimerContext } from "../../context/timerContext";
 import {
  StyledTimer,
@@ -8,8 +8,26 @@ import {
 } from "./Timer.style";
 
 const Timer = () => {
- const { counter, toggleIsCountDownHandler, isCountDown, activeCounterTime } =
-  UseTimerContext();
+ const {
+  toggleIsCountDownHandler,
+  isCountDown,
+  activeCounterTime,
+  stopCountingDownHandler,
+ } = UseTimerContext();
+
+ const [counter, setCounter] = useState(activeCounterTime);
+
+ useEffect(() => {
+  setCounter(activeCounterTime);
+ }, [activeCounterTime]);
+
+ useEffect(() => {
+  if (!isCountDown || counter <= 0) return stopCountingDownHandler();
+  const timer = setInterval(() => {
+   setCounter((prev) => prev - 1);
+  }, 100);
+  return () => clearInterval(timer);
+ }, [isCountDown, counter, stopCountingDownHandler]);
 
  const counterToDisplay = useMemo(() => {
   let minutes = Math.floor(counter / 60);
@@ -54,7 +72,12 @@ const Timer = () => {
      </svg>
      <InsideTimer>
       <p>{counterToDisplay}</p>
-      <ToggleButton onClick={toggleIsCountDownHandler}>
+      <ToggleButton
+       onClick={() => {
+        if (counter <= 0) setCounter(activeCounterTime);
+        else toggleIsCountDownHandler();
+       }}
+      >
        {toggleButtonText}
       </ToggleButton>
      </InsideTimer>
