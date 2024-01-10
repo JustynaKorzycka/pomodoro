@@ -25,7 +25,7 @@ const Timer = () => {
   if (!isCountDown || counter <= 0) return stopCountingDownHandler();
   const timer = setInterval(() => {
    setCounter((prev) => prev - 1);
-  }, 100);
+  }, 1000);
   return () => clearInterval(timer);
  }, [isCountDown, counter, stopCountingDownHandler]);
 
