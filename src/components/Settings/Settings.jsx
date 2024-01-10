@@ -4,6 +4,7 @@ import { useState } from "react";
 import { UseTimerContext } from "../../context/timerContext";
 import Divider from "../Divider";
 import Form from "./Form";
+import closeImg from "../../assets/icon-close.svg";
 
 const Settings = ({
  fontFamilyType,
@@ -33,6 +34,11 @@ const Settings = ({
        selectedTheme={selectedTheme}
        setSelectedTheme={setSelectedTheme}
        onCloseModal={closeModalHandler}
+      />
+      <CloseImg
+       src={closeImg}
+       alt=""
+       onClick={closeModalHandler}
       />
      </SettingsPanel>
     </>
@@ -85,4 +91,11 @@ const SettingsPanel = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
  }
+`;
+
+const CloseImg = styled.img`
+ position: absolute;
+ top: 29px;
+ right: 24px;
+ cursor: pointer;
 `;
